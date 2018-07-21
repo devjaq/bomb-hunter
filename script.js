@@ -1,9 +1,27 @@
 "use strict";
 
+function disappear() {
+  let popup = document.getElementById('popup');
+  console.log(popup);
+  
+  popup.parentElement.removeChild(popup);
+}
+
 function startGame() {
   let bombCounter = 4;
   let bombArray = [];
   let bombCountdown = 4;
+
+  let popup = document.createElement('section');
+  popup.id = "popup";
+  let popupText = document.createElement('p');
+  popupText.innerText = "Welcome to Bomb Hunter!";
+  let start = document.createElement('button');
+  // start.innerHTML = `type="button"`
+  popup.appendChild(popupText);
+  popup.appendChild(start);
+  document.body.appendChild(popup);
+  start.outerHTML = `<button onclick="disappear()" type="button"> Start Game</button>`;
 
   for(let i = 1; i <= 16; i++) {
   // console.log(i);
